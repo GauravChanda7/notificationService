@@ -1,10 +1,25 @@
-# Virtual Environment
-venv/
-
-# Python cache files
+# Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
 *$py.class
 
-# Environment variables
-.env
+# Virtual environment
+venv/
+
+# SQLite database
+instance/*.db
+
+# Logs and other environment-specific files
+*.log
+*.env
+
+# Flask-related
+*.sqlite3
+*.db
+
+# VS Code settings
+.vscode/
+
+# macOS / Linux / Windows system files
+.DS_Store
+Thumbs.db
