@@ -13,3 +13,8 @@ form {
     flex-direction: column;
     gap: 4px;
 }
+
+.error {
+    text-align: center;
+    color: red;
+}
