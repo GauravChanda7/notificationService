@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block head%}
+<title>Notification Service</title>
+<link rel="stylesheet" href="{{url_for('static', filename = 'css/index.css')}}">
+{% endblock %}
+
+
+{% block body %}
+<h1>Notification Service</h1>
+
+<div class="login-signin">
+    <form action="/" method="POST">
+        <input type="submit" name="action" value="Login" id="login">
+        <input type="submit" name="action" value="Sign-in" id="signin">
+    </form>
+</div>
+{% endblock %}
