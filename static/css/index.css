@@ -1,9 +1,47 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
 body {
-    font-family:'Times New Roman', Times, serif;
+    font-family: Arial, sans-serif;
     height: 100vh;
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
-    gap: 8px
+    align-items: center;
+    background: #f0f4f8;
+    padding: 20px;
+}
+
+
+h1 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+
+.login-signin {
+    display: flex;
+    gap: 20px;
+}
+
+
+.login-signin form input[type="submit"] {
+    padding: 12px 24px;
+    font-size: 1rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    background-color: #4a90e2;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.login-signin form input[type="submit"]:hover {
+    background-color: #357ab8;
 }

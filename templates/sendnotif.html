@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    <title>Send Notification</title>
+    <link rel="stylesheet" href="{{url_for('static', filename = 'css/sendnotif.css')}}">
+    <script src="{{url_for('static', filename = 'js/notifType.js')}}" defer></script>
+{% endblock %}
+
+{% block body %}
+<div class="notif-container">
+    <h1>Send Notification</h1>
+    <div class="notif-send-form">
+        <form action="/notifications/send/{{id}}" method="POST" id="form">
+            <input type="text" name="name" id="name" placeholder="Name">
+            <input type="text" name="subject" id="subject" placeholder="Subject">
+            <textarea name="message" id="message" placeholder="Message"></textarea>
+            <div id="message-type">
+                <input type="button" value="Email" id="email-btn">
+                <input type="button" value="Message" id="message-btn">
+                <input type="button" value="In App" id="inapp-btn">
+            </div>
+            <div id="add-field"></div>
+        </form>
+    </div>
+</div>
+{% endblock %}

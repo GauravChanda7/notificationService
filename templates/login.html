@@ -2,11 +2,12 @@
 
 {% block head %}
     <title>Login</title>
-    <link rel="stylesheet" href="{{url_for('static', filename = 'css/signin.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename = 'css/login.css')}}">
 {% endblock %}
 
 
 {% block body %}
+<div class="login-container">
     <h1>Login Page</h1>
 
     <div class="login-form">
@@ -15,15 +16,16 @@
             <input type="password" name="password" id="password" placeholder="Password">
             <input type="submit" value="Submit">
         </form>
-        
-        {% with messages = get_flashed_messages(with_categories = true)%}
-            {% if messages%}
-                <div>
+
+        {% with messages = get_flashed_messages(with_categories = true) %}
+            {% if messages %}
+                <div class="flash-messages">
                     {% for category, message in messages %}
-                        <p class="{{category}}">{{message}}</p>
+                        <p class="{{ category }}">{{ message }}</p>
                     {% endfor %}
                 </div>
             {% endif %}
         {% endwith %}
     </div>
+</div>
 {% endblock %}

@@ -2,8 +2,18 @@
 
 {% block head %}
     <title>Home Page</title>
+    <link rel="stylesheet" href="{{url_for('static', filename = 'css/homepage.css')}}">
 {% endblock %}
 
 {% block body %}
+    <div class="action-buttons">
+        <form action="/notifications/send/{{ id }}" method="GET">
+            <input type="submit" name="action" value="Send" id="send">
+        </form>
+
+        <form action="/notifications/inbox/{{ id }}/1" method="GET">
+            <input type="submit" name="action" value="Inbox" id="view">
+        </form>
+    </div>
     
 {% endblock %}

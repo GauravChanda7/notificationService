@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    <title>Inbox</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'css/inbox.css') }}">
+{% endblock %}
+
+{% block body %}
+<div class="inbox-container">
+    <div class="inbox-heading">
+        <h1>Inbox</h1>
+    </div>
+
+    <div class="pagination-controls">
+        {% if pageNo > 1 %}
+            <a href="/notifications/inbox/{{ userId }}/{{ pageNo - 1}}">Prev</a>
+        {% endif %}
+        <span class="userid">{{ userId }}</span>
+        {% if pageNo < totalPage %}
+            <a href="/notifications/inbox/{{ userId }}/{{ pageNo + 1}}">Next</a>
+        {% endif %}
+    </div>
+
+    <div id="inbox-table">
+        <table>
+            <tr>
+                <th>Date</th>
+                <th>Time</th>
+                <th>From</th>
+                <th>Subject</th>
+                <th>Show</th>
+                <th>Delete</th>
+            </tr>
+
+            {% for notification in notificationList %}
+                <tr>
+                    <td>{{ notification.sentAt.strftime('%d-%m-%Y') }}</td>
+                    <td>{{ notification.sentAt.strftime('%H:%M') }}</td>
+                    <td>{{ notification.name }}</td>
+                    <td>{{ notification.subject }}</td>
+                    <td>
+                        <a href="/view/{{ userId }}/{{ notification.sno }}" class="button-link">View</a>
+                    </td>
+                    <td>
+                        <form action="/delete/{{ userId }}/{{ notification.sno }}" method="POST">
+                            <input type="submit" value="Delete">
+                        </form>
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+</div>
+{% endblock %}

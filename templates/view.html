@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    <title>View</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'css/view.css') }}">
+{% endblock %}
+
+
+{% block body %}
+<div class="message-container">
+    <h1 class="main-heading">Message</h1>
+
+    <div id="message-view">
+        <h2 class="subject">Subject: {{ message.subject }}</h2>
+
+        <div id="message-data">
+            <h3>Sent by: {{ message.name }}</h3>
+            <h3>Date: {{ message.sentAt.strftime('%d-%m-%Y %H:%M') }}</h3>
+        </div>
+
+        <div id="message-body">
+            <p class="message-label">Message:</p>
+            <p class="message-text">{{ message.body }}</p>
+        </div>
+    </div>
+</div>
+{% endblock %}
